@@ -7,4 +7,4 @@ To run the file:
 -> Make sure that html file is in the template folder.
 -> Then run the main.py file.
 
-<img src="https://github.com/SURJEET3010/JInjaUI/issues/2#issue-1410419486" />
+![p1b-Server](https://user-images.githubusercontent.com/70914713/196026825-5c9dbf51-5d89-4853-9af9-5719bd58e2bc.png)
