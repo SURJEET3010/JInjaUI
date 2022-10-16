@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<title> Jinja UI Page </title>
+
+<style>
+input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: none;
+  border-radius: 4px;
+  box-sizing: border-box;
+  background-color: #f1f1f1;
+
+}
+
+.data {
+  border-radius: none;
+  background-color: white;
+  padding: 20px;
+  border-color:#f2f2f2;
+  border: none;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#box
+{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+}
+
+table, th, td
+{
+	border: 1px solid;
+    border-color: lightgray;
+    text-align: left;
+    padding 5px;
+
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th { padding : 5px;
+		 width : 30px;
+         color :gray;
+         }
+
+.right_data
+{
+	text-align :right;
+}
+
+</style>
+<body>
+
+
+<div class = "data">
+
+  <div id ="box">
+        <div>
+            <label >Hub <span style="color:red">*</span></label>
+            <input type="text" required>
+
+            <label>Supplier<span style="color:red">*</span></label>
+            <input type="text" required>
+
+            <label>Supplier Name </label>
+            <input type="text">
+        </div>
+
+        <div>
+            <label > GRN</label>
+            <input type="text">
+        </div>
+   </div>
+
+</div>
+
+<br>
+
+ <div class = "data">
+  <h1> SKU Summary </h1>
+  <h3> SKU Table </h3>
+
+  <table>
+      <tr>
+          <th> <span><input type="checkbox" disabled> &nbsp; </span>No.</th>
+          <th> SKU</th>
+          <th> SKU Description</th>
+          <th> Standard Crate Quantity</th>
+          <th> Procured Quantity</th>
+      </tr>
+
+    {% for i in range(data["sku_table"] | length) %}
+
+      <tr>
+      <td><span><input type="checkbox" disabled>&nbsp; </span> {{ i+1 }}</td>
+
+      <td><b> {{ data["sku_table"][i]["sku"] }}</b></td>
+      <td> {{ data["sku_table"][i]["sku_description"] }}</td>
+      <td class ="right_data"> {{ data["sku_table"][i]["standard_crate_quantity"] }} </td>
+          <td class = "right_data"> <b> {{ data["sku_table"][i]["quantity"] }} </b></td>
+    </tr>
+      {% endfor %}
+  </table>
+
+</div>
+
+<br>
+
+<div class = "data">
+  <h1> Crate List ^</h1>
+  <h3> Crate Table </h3>
+  <table>
+      <tr>
+          <th> <span><input type="checkbox" disabled> &nbsp; </span>No.</th>
+          <th> Crate</th>
+          <th> SKU </th>
+          <th class="right_data"> Packed Quantity</th>
+          <th class ="right_data"> Crate Weight</th>
+          <th> Is Final Crate </th>
+      </tr>
+
+
+
+  {% for i in range(data["crate_table"] | length) %}
+
+    <tr>
+      <td><span><input type="checkbox" disabled>&nbsp; </span> {{i+1}}</td>
+      <td><b>{{ data["crate_table"][i]["crate"] }} </b></td>
+
+      <td> {{ data["crate_table"][i]["sku"] }}</td>
+
+      <td class ="right_data"> {{ data["crate_table"][i]["packed_quantity"] }}</td>
+
+      <td class ="right_data">{{ data["crate_table"][i]["crate_weight"] }}</td>
+
+      <td class ="right_data">{{ data["crate_table"][i]["is_final_crate"] }}</td>
+
+    </tr>
+    {% endfor %}
+
+
+  </table>
+
+</div>
+<br>
+
+<div>
+
+</div>
+
+</body>
+</html>
