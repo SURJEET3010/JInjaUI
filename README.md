@@ -2,8 +2,8 @@
 
 This is the demo project for Jinja UI from the JSON data file.
 
-To run the file:
--> Clone the repository.
+To run the file: <br>
+-> Clone the repository. <br>
 -> Make sure that html file is in the template folder.
 -> Then run the main.py file.
 
