@@ -62,19 +62,19 @@ th { padding : 5px;
 
   <div id ="box">
         <div>
-            <label >Hub <span style="color:red" required>*</span></label>
-            <input type="text" required>
+            <label >Hub <span style="color:red">*</span></label>
+            <input type="text" required placeholder="{{ data['hub'] }}">
 
-            <label>Supplier<span style="color:red" required>*</span></label>
-            <input type="text" required>
+            <label>Supplier<span style="color:red">*</span></label>
+            <input type="text" placeholder = "{{ data['supplier'] }}"required>
 
             <label>Supplier Name </label>
-            <input type="text">
+            <input type="text" placeholder="{{ data['supplier_name'] }}">
         </div>
 
         <div>
             <label > GRN</label>
-            <input type="text">
+            <input type="text" placeholder="{{ data['grn'] }}">
         </div>
    </div>
 
